@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク20</title>
+<style>
+html, body, h1, div {
+    margin:0;
+    padding:0;
+}
+h1 {
+    padding: 10px;
+    font-size: 12px;
+}
+#chats {
+    height: 300px;
+    overflow:auto;
+    padding: 10px;
+    background-color: #ccc;
+    border-top: 1px solid #000;
+}
+.chat {
+    overflow:hidden;
+}
+.others {
+    background-color: white;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;	
+}
+.you {
+    background-color: #00ff00;
+    float: right;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;	
+}
+#console {
+    padding: 10px;
+    text-align:center;
+    background-color: black;
+}
+#console input {
+    width: 80%;
+    padding: 5px;
+}
+</style>
+</head>
+<body>
+<h1>チャット</h1>
+<div id="chats">
+</div>
+<div id="console">
+    <input type="text" id="message" />
+    <button id="btn">投稿</button>
+</div>
+<script>
+var btn = document.getElementById("btn");
+btn.onclick = function() {
+    // chatsタグを取得
+    var chats_tag = document.getElementById("chats");
+    // messageタグを取得
+    var message_tag = document.getElementById("message");
+    // 入力したメッセージを取得
+    var message = message_tag.value;
+    // 表示するタグを作成
+    var your_tag = '<div class="chat"><div class="you">' + message + '</div></div>';
+    // 入力したメッセージを表示
+    chats_tag.innerHTML += your_tag;
+    // メッセージボックスを空にする
+    message_tag.value = "";
+    // メッセ―ボックスをカーソルをあてる
+    message_tag.focus();
+    
+    // ここから自動返信の処理を作成します
+    var answer = "";
+    if( message == "おはよう") {
+        answer = "おはようございます";
+    } else if( message == "こんにちは") {
+        answer = "元気ですか";
+    } else if( message == "いい天気ですね") {
+        answer = "気持ちいい天気ですね";
+    } else if( message == "さようなら") {
+        answer = "またね";
+    }
+    
+    if( answer != "" ) {
+        // 自動で返信するタグを作成する
+        var answer_tag = '<div class="chat"><div class="others">' + answer + '</div></div>';
+        // 自動で返信するタグを書き込む
+        chats_tag.innerHTML += answer_tag;
+    }
+    // チャットの一番下にスクロールする
+    chats_tag.scrollTop = chats_tag.scrollHeight;
+};
+</script>
+</body>
+</html>

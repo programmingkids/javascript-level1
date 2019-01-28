@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク24</title>
+<style>
+html, body, div {
+  margin:0;
+  padding:0;
+}
+h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+}
+#panel {
+  padding: 10px;
+}
+#gallary {
+  padding: 10px;
+}
+#gallary img {
+  float: left;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  border: 4px solid #00cc00;
+  background-color: #ccc;
+}
+.clear {
+  clear: both;
+}
+</style>
+</head>
+<body>
+<h1>画像</h1>
+<div id="panel"><button id="btn">画像を表示</button></div>
+<div id="gallary"></div>
+<script>
+// ボタンのタグを取り出す
+var btn = document.getElementById("btn");
+// ボタンがクリックされると動作します
+btn.onclick = function() {
+  // 画像を表示するタグを取得します
+  var gallary = document.getElementById("gallary");
+  
+  // ここからfor文で画像を表示する処理を作成します
+  for( var i = 1; i <= 12; i++) {
+    // gallaryに画像を追加
+    gallary.innerHTML += '<img src="../images/image_' + i + '.jpg" />';
+    if( i % 3 == 0) {
+      // 画像を三個ごとに、行を変えるためのタグを追加
+      gallary.innerHTML += '<br class="clear">';
+    }
+  }
+}
+</script>
+</body>
+</html>

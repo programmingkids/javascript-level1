@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク23</title>
+<style>
+html, body, div {
+  margin:0;
+  padding:0;
+}
+h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+}
+#display {
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  line-height:300px;
+  text-align:center;
+}
+#display img {
+  width: 300px;
+  margin: 10px;
+  vertical-align:middle;
+  border: 5px solid #ccc;
+}
+</style>
+</head>
+<body>
+<h1>スライドショー</h1>
+<div id="display">
+  <button id="prev">前へ</button>
+  <img id="image" src="../images/image_1.jpg" />
+  <button id="next">次へ</button>
+</div>
+<script>
+// スライドショーの画像を配列で定義
+var images = [
+  "../images/image_1.jpg",
+  "../images/image_2.jpg",
+  "../images/image_3.jpg",
+  "../images/image_4.jpg",
+];
+// 表示している画像位置を管理する変数
+var index = 0;
+// 画像を表示するimgタグを取得
+var imageTag = document.getElementById("image");
+// 「前へ」のボタンタグを取得
+var prevTag = document.getElementById("prev");
+// 「次へ」のボタンタグを取得
+var nextTag = document.getElementById("next");
+
+// ここからボタンをクリックしたときの処理を作成します
+// 前へをクリックしたときの動作
+prevTag.onclick = function() {
+  // 配列のインデックスを1ずつ減らす
+  index--;
+  if(index < 0) {
+    // インデックスを減らした結果、0より小さい場合、
+    // インデックス位置を配列の最後に移動させる
+    index = images.length -1;
+  }
+  // 配列内のindex番目の画像を表示
+  imageTag.src = images[index];
+}
+
+// 次へをクリックしたときの動作
+nextTag.onclick = function () {
+  // 配列のインデックスを1ずつ増やす
+  index++
+  if(index >= images.length) {
+    // インデックスを増やした結果、配列のサイズ以上の場合、
+    // インデックス位置を配列の先頭に移動させる
+    index = 0;
+  }
+  // 配列内のindex番目の画像を表示
+  imageTag.src = images[index];
+}
+</script>
+</body>
+</html>

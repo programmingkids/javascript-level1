@@ -59,12 +59,9 @@ btn.onclick = function() {
   displayTag.innerHTML = "";
   
   // ここからfor文で配列の要素を表示する処理を作成します
-  for( var i in todos ) {
-    // displayの内側に、<li>xxx</li>というタグを書き込む
-    var li = document.createElement("li");
-    li.textContent = todos[i];
-    displayTag.appendChild(li);
-  }
+  
+  
+  
   // 入力ボックスの値を消す
   todoTag.value = "";
 }

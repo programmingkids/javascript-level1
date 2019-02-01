@@ -1,4 +1,4 @@
-var signal = '黄';
+var signal = 
 
 if ( signal == '赤' ) {
     console.log('止まります');    

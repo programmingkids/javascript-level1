@@ -74,25 +74,7 @@ btn.onclick = function() {
     message_tag.focus();
     
     // ここから自動返信の処理を作成します
-    var answer = "";
-    if( message == "おはよう") {
-        answer = "おはようございます";
-    } else if( message == "こんにちは") {
-        answer = "元気ですか";
-    } else if( message == "いい天気ですね") {
-        answer = "気持ちいい天気ですね";
-    } else if( message == "さようなら") {
-        answer = "またね";
-    }
-    
-    if( answer != "" ) {
-        // 自動で返信するタグを作成する
-        var answer_tag = '<div class="chat"><div class="others">' + answer + '</div></div>';
-        // 自動で返信するタグを書き込む
-        chats_tag.innerHTML += answer_tag;
-    }
-    // チャットの一番下にスクロールする
-    chats_tag.scrollTop = chats_tag.scrollHeight;
+
 };
 </script>
 </body>

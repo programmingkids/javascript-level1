@@ -1,4 +1,4 @@
-var score =  69;
+var score = ;
 
 if( score == 100 ) {
     console.log('満点です');

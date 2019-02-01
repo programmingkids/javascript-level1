@@ -45,14 +45,7 @@ btn.onclick = function() {
   var gallary = document.getElementById("gallary");
   
   // ここからfor文で画像を表示する処理を作成します
-  for( var i = 1; i <= 12; i++) {
-    // gallaryに画像を追加
-    gallary.innerHTML += '<img src="../images/image_' + i + '.jpg" />';
-    if( i % 3 == 0) {
-      // 画像を三個ごとに、行を変えるためのタグを追加
-      gallary.innerHTML += '<br class="clear">';
-    }
-  }
+
 }
 </script>
 </body>

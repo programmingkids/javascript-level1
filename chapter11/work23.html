@@ -53,31 +53,15 @@ var prevTag = document.getElementById("prev");
 var nextTag = document.getElementById("next");
 
 // ここからボタンをクリックしたときの処理を作成します
-// 前へをクリックしたときの動作
-prevTag.onclick = function() {
-  // 配列のインデックスを1ずつ減らす
-  index--;
-  if(index < 0) {
-    // インデックスを減らした結果、0より小さい場合、
-    // インデックス位置を配列の最後に移動させる
-    index = images.length -1;
-  }
-  // 配列内のindex番目の画像を表示
-  imageTag.src = images[index];
-}
 
-// 次へをクリックしたときの動作
-nextTag.onclick = function () {
-  // 配列のインデックスを1ずつ増やす
-  index++
-  if(index >= images.length) {
-    // インデックスを増やした結果、配列のサイズ以上の場合、
-    // インデックス位置を配列の先頭に移動させる
-    index = 0;
-  }
-  // 配列内のindex番目の画像を表示
-  imageTag.src = images[index];
-}
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>

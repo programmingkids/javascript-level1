@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク18</title>
+<style>
+html, body, div {
+  margin:0;
+  padding:0;
+}
+h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+  text-align:center;
+}
+#panel {
+  text-align:center;
+  margin: 10px;
+}
+#display {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  text-align:center; 
+}
+#display img {
+  width: 100px;
+}
+</style>
+</head>
+<body>
+<h1>ガチャ</h1>
+<div id="panel">
+  <button id="start">ガチャを回す</button>
+</div>
+<div id="display">
+  <img id="image" />
+</div>
+<script>
+// 表示する画像の配列
+var images = [
+  "../images/robot1.png",
+  "../images/robot2.png",
+  "../images/robot3.png",
+  "../images/robot4.png",
+  "../images/robot5.png",
+  "../images/robot6.png",
+  "../images/robot7.png",
+  "../images/robot8.png",
+  "../images/robot9.png",
+];
+
+// 乱数を発生させる関数
+function getRandom(min, max) {
+  var randomValue = Math.floor(Math.random() * (max-min+1)) + min;
+  return randomValue;
+}
+
+// ここからボタンをクリックしたときの処理を作成します
+// imgタグのオブジェクトを取得
+var imageTag = document.getElementById("image");
+// スタートボタンタグのオブジェクトを取得
+var startButton = document.getElementById("start");
+// スタートボタンをクリックしたときの処理
+startButton.onclick = function() {
+  imageTag.src = "";
+  var randomValue = getRandom(0, images.length-1);
+  imageTag.src = images[randomValue];
+}
+</script>
+</body>
+</html>

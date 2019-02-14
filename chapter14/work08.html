@@ -42,31 +42,16 @@ var displayTag = document.getElementById("display");
 var start = document.getElementById("start");
 
 // ここから処理を作成します
-function setDisplayMessage(message) {
-    displayTag.textContent = message;
-}
 
-function countDown() {
-    count--;
-    setDisplayMessage(count);
-    if(count == 0) {
-        clearInterval(timer);
-        timer = null;
-        setDisplayMessage("タイムアップ");
-    }
-}
 
-start.onclick = function() {
-    if(timer != null) {
-        return;
-    }
-    count = numberTag.value;
-    if(count <= 0) {
-        return;
-    }
-    setDisplayMessage(count);
-    timer = setInterval(countDown,1000);
-};
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>

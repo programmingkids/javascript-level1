@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク8</title>
+<style>
+html, body, div {
+    margin:0;
+    padding:0;
+}
+h1 {
+    text-align: center;
+}
+#panel {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+#display {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 4em;
+    color: white;
+    background-color: green;
+    border: 4px inset #33FF99;
+}
+</style>
+</head>
+<body>
+<h1>カウントダウンタイマー</h1>
+<div id="panel">
+    <input type="text" id="number" value="5" />
+    <button id="start">開始</button>
+</div>
+<div id="display">[開始をクリック]</div>
+<script>
+var timer;
+var count = 0;
+var numberTag = document.getElementById("number");
+var displayTag = document.getElementById("display");
+var start = document.getElementById("start");
+
+// ここから処理を作成します
+function setDisplayMessage(message) {
+    displayTag.textContent = message;
+}
+
+function countDown() {
+    count--;
+    setDisplayMessage(count);
+    if(count == 0) {
+        clearInterval(timer);
+        timer = null;
+        setDisplayMessage("タイムアップ");
+    }
+}
+
+start.onclick = function() {
+    if(timer != null) {
+        return;
+    }
+    count = numberTag.value;
+    if(count <= 0) {
+        return;
+    }
+    setDisplayMessage(count);
+    timer = setInterval(countDown,1000);
+};
+</script>
+</body>
+</html>

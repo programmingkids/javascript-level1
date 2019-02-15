@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク10</title>
+<style>
+html, body, div {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+#panel {
+    padding: 10px;
+    text-align: center;
+}
+#search {
+    height: 40px;
+    width: 100px;
+    padding-left: 10px;
+    border: 1px solid orange;
+}
+#word {
+    height: 36px;
+    line-height: 40px;
+    border: 1px solid orange;
+    padding-left: 10px;
+}
+#btn {
+    height: 40px;
+    width: 80px;
+    background-color: orange;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>検索</h1>
+<div id="panel">
+    <select id="search">
+        <option value="google">Google</option>
+        <option value="yahoo">Yahoo</option>
+        <option value="youtube">Youtube</option>
+    </select>
+    <input type="text" id="word" />
+    <button id="btn">検索</button>
+</div>
+<script>
+var sites = {
+    "google" : "https://www.google.com/search?q=",
+    "yahoo"  : "https://search.yahoo.co.jp/search?p=",
+    "youtube": "https://www.youtube.com/results?search_query=",
+};
+// ここから処理を作成します
+var btn = document.getElementById("btn");
+btn.onclick = function() {
+    var word = document.getElementById("word").value;
+    var search = document.getElementById("search").value;
+    
+    if( word != "") {
+        var url = sites[search];
+        url += word;
+        location.href = url;
+    }
+};
+</script>
+</body>
+</html>

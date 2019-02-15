@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク9</title>
+<style>
+#display {
+    margin: 10px;
+    padding: 10px;
+    font-size: 2em;
+
+}
+.pattern1 {
+    background-color: red;
+    color: white;
+}
+.pattern2 {
+    background-color: blue;
+    color: white;
+}
+.pattern3 {
+    background-color: green;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>ワーク9</h1>
+<button id="btn">クリック</button>
+<select id="pattern">
+    <option value="pattern1">pattern1</option>
+    <option value="pattern2">pattern2</option>
+    <option value="pattern3">pattern3</option>
+</select>
+<div id="display">I have a dream</div>
+<script>
+var displayTag = document.getElementById("display");
+var btn = document.getElementById("btn");
+
+btn.onclick = function() {
+    var pattern = document.getElementById("pattern");
+    displayTag.className = pattern.value;
+};
+</script>
+</body>
+</html>

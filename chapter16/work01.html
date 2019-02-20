@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク1</title>
+<style>
+div {
+    width: 100px;
+    height: 100px;
+}
+#area_a {
+    background-color: red;
+    color: white;
+}
+#area_b {
+    background-color: blue;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>ワーク1</h1>
+<button id="btn">ボタン</button>
+<div id="area_a">エリアA</div>
+<div id="area_b">エリアB</div>
+<script>
+var btn = document.getElementById("btn");
+var area_a = document.getElementById("area_a");
+var area_b = document.getElementById("area_b");
+
+btn.onclick = function() {
+    alert("ボタンをクリック");
+};
+
+area_a.onclick = function() {
+    alert("エリアAをクリック");
+};
+
+area_b.onclick = function() {
+    alert("エリアBをクリック");
+};
+</script>
+</body>
+</html>

@@ -12,8 +12,8 @@ var messageTag;
 window.onload = init;
 
 function init() {
-    var displayTag = document.getElementById("display");
-    var messageTag = document.getElementById("message");
+    displayTag = document.getElementById("display");
+    messageTag = document.getElementById("message");
     messageTag.onkeydown = function(event) {
         displayTag.innerHTML += "キーダウン:" + event.key + "<br>";
     };

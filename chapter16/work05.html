@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク5</title>
+<style>
+div {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+}
+#area_red {
+    background-color: #FF9999;
+    color: white;
+}
+#area_blue {
+    background-color: #00CCFF;
+    color: white;
+}
+</style>
+<script>
+var area_red;
+var area_blue;
+
+window.onload = init;
+
+function init() {
+    area_red = document.getElementById("area_red");
+    area_red.onmouseover = function() {
+        document.body.style.backgroundColor = "red";
+    };
+    area_red.onmouseout = function() {
+        document.body.style.backgroundColor = "white";
+    };
+    
+    area_blue = document.getElementById("area_blue");
+    area_blue.onmouseover = function() {
+        document.body.style.backgroundColor = "blue";
+    };
+    area_blue.onmouseout = function() {
+        document.body.style.backgroundColor = "white";
+    };
+}
+</script>
+</head>
+<body>
+<h1>ワーク5</h1>
+<div id="area_red">赤のエリア</div>
+<div id="area_blue">青のエリア</div>
+</body>
+</html>

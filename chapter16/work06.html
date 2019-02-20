@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク6</title>
+<style>
+</style>
+<script>
+var displayTag;
+var messageTag;
+
+window.onload = init;
+
+function init() {
+    var displayTag = document.getElementById("display");
+    var messageTag = document.getElementById("message");
+    messageTag.onkeydown = function(event) {
+        displayTag.innerHTML += "キーダウン:" + event.key + "<br>";
+    };
+    messageTag.onkeyup = function(event) {
+        displayTag.innerHTML += "キーアップ<br>";
+    };
+}
+</script>
+</head>
+<body>
+<h1>ワーク6</h1>
+<div><input type="text" id="message" /></div>
+<div id="display"></div>
+</body>
+</html>

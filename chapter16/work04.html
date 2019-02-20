@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク4</title>
+<style>
+</style>
+<script>
+var messageTag;
+var displayTag;
+
+window.onload = init;
+
+function init() {
+    displayTag = document.getElementById("display");
+    messageTag = document.getElementById("message");
+    
+    messageTag.onfocus = function() {
+        displayTag.innerHTML += "フォーカスが当たりました<br>";
+    };
+    messageTag.onblur = function() {
+        displayTag.innerHTML += "フォーカスが外れました<br>";
+    };
+}
+</script>
+</head>
+<body>
+<h1>ワーク4</h1>
+<input type="text" id="message" />
+<div id="display"></div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク7</title>
+<style>
+html, body, div {
+  margin:0;
+  padding:0;
+}
+h1 {
+    text-align: center;
+}
+#panel {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+#display {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: blue;
+    font-size: 2em;
+    border: 3px dashed blue;
+}
+</style>
+<script>
+// タイマー
+var timer;
+// 開始時刻（単位はミリ秒）
+var startTime;
+// 開始してからの経過時間（単位はミリ秒）
+var totalTime = 0;
+// 停止した時間（単位はミリ秒）
+var stopTime = 0;
+
+// 表示するためのタグ
+var displayTag;
+// 開始ボタン
+var start;
+// 停止ボタン
+var stop;
+// リセットボタン
+var reset;
+
+function clickStart() {
+    if(timer != null) {
+        return;
+    }
+    startTimer();
+}
+
+function clickStop() {
+    if(timer == null) {
+        return;
+    }
+    stopTimer();
+}
+
+function clickReset() {
+    resetTimer();
+}
+
+function startTimer() {
+    // 開始時刻を設定
+    startTime = Date.now();
+    timer = setInterval(countUp,10);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    timer = null;
+    // 停止するときに現在の経過時刻を保持しておく
+    stopTime = totalTime;
+}
+
+function resetTimer() {
+    totalTime = 0;
+    stopTime = 0;
+    displayTime();
+}
+
+function countUp() {
+    totalTime = Date.now() - startTime + stopTime;
+    displayTime()
+}
+
+function setDigits(number, digits) {
+    var number_string = String(number);
+    digits -= number_string.length;
+    if (digits > 0) {
+        for (var i = 0; i < digits; i++) {
+            number_string = '0' + number_string;
+        }
+    }
+    return number_string;
+}
+
+// ここから処理を作成します
+window.onload = init;
+
+function init() {
+    displayTag = document.getElementById('display');
+    // 開始ボタン
+    start = document.getElementById('start');
+    start.onclick = clickStart;
+    // 停止ボタン
+    stop = document.getElementById('stop');
+    stop.onclick = clickStop;
+    // リセットボタン
+    reset = document.getElementById('reset');
+    reset.onclick = clickReset;
+}
+
+function displayTime() {
+    // 分、秒、ミリ秒を計算する
+    var minute = Math.floor(totalTime / 60000);
+    var second = Math.floor(totalTime % 60000 / 1000);
+    var millisec = totalTime % 1000;
+    // 桁をそろえる
+    minute = setDigits(minute,2);
+    second = setDigits(second,2);
+    millisec = setDigits(millisec,3);
+    // 表示する
+    displayTag.textContent = minute + "分" + second + "秒" + millisec;
+}
+</script>
+</head>
+<body>
+<h1>ストップウォッチ</h1>
+<div id="display">00分00秒000</div>
+<div id="panel">
+    <button id="start">開始</button>
+    <button id="stop">停止</button>
+    <button id="reset">リセット</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ワーク3</title>
+<style>
+</style>
+<script>
+var selectTag;
+var displayTag;
+
+window.onload = init;
+
+function init() {
+    displayTag = document.getElementById("display");
+    selectTag = document.getElementById("colors");
+    selectTag.onchange = function() {
+        var value = selectTag.value;
+        displayTag.innerHTML = value;
+    };
+}
+</script>
+</head>
+<body>
+<h1>ワーク3</h1>
+<div>
+    <select id="colors">
+        <option value="red">赤</option>
+        <option value="blue">青</option>
+        <option value="green">緑</option>
+    </select>
+    <span id="display"></span>
+</div>
+</body>
+</html>
